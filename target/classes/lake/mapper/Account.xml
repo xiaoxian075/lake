@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lake.mapper.IAccountMB">
+
+	<!-- tb_account -->
+	<resultMap id="accountList" type="lake.entity.NAccount" >
+		<id column="id" property="id"/>
+		<result property="loginName" column="loginName" />
+		<result property="password" column="password" />
+		<result property="userName" column="userName" />
+		<result property="nickName" column="nickName" />
+		<result property="identityID" column="identityID" />
+		<result property="identityName" column="identityName" />
+		<result property="birth" column="birth" />
+		<result property="createTime" column="createTime" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map" resultMap="accountList">
+        SELECT
+			`id`,
+			`loginName`,
+			`password`,
+			`userName`,
+			`nickName`,
+			`identityID`,
+			`identityName`,
+			`birth`,
+			`createTime`
+        FROM
+        	`tb_account`
+		WHERE
+			1=1
+			ORDER BY `id` DESC
+	</select>
+	
+</mapper> 
+
