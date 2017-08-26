@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.node.NPageInfo;
-import com.util.PageUtil;
-import com.util.RedisUtil;
+import com.redis.RedisUtil;
 
 import lake.db.IAccountDB;
 import lake.entity.NAccount;
@@ -27,7 +26,7 @@ public class CAccountDB implements IAccountDB {
 			return new NPageInfo<NAccount>(0,0,pageNum,pageSize,0,null);
 		}
 
-		return PageUtil.pageInfo(pageNum, pageSize, listAccount);
+		return NPageInfo.createNew(pageNum, pageSize, listAccount);
 	}
 	
 	private List<NAccount> loadDataFromDbToRedis() {

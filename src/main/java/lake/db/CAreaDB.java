@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.node.NPageInfo;
-import com.util.PageUtil;
-import com.util.RedisUtil;
+import com.redis.RedisUtil;
 
 import lake.entity.NArea;
 import lake.mapper.IAreaMB;
@@ -27,7 +26,7 @@ public class CAreaDB implements IAreaDB {
 			return new NPageInfo<NArea>(0,0,pageNum,pageSize,0,null);
 		}
 
-		return PageUtil.pageInfo(pageNum, pageSize, listArea);
+		return NPageInfo.createNew(pageNum, pageSize, listArea);
 	}
 	
 	private List<NArea> loadDataFromDbToRedis() {

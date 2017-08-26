@@ -36,14 +36,26 @@
 	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	  <init-param>  
         <param-name>contextConfigLocation</param-name>  
-        <param-value>classpath:spring-servlet.xml</param-value>  
+        <param-value>classpath:spring.xml</param-value>  
     </init-param> 
 	  <load-on-startup>1</load-on-startup>  
 	</servlet>
+	
+<!-- 	<servlet>  
+	  <servlet-name>context</servlet-name>  
+	  <servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
+	  <init-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>classpath:spring.xml</param-value>  
+    </init-param> 
+	  <load-on-startup>1</load-on-startup>  
+	</servlet> -->
 	
 	<!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 -->  
 	<servlet-mapping>  
 	  <servlet-name>dispatcher</servlet-name>  
 	  <url-pattern>/</url-pattern>
-	</servlet-mapping>    
+	</servlet-mapping>   
+	
+	
 </web-app>

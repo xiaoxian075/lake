@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class NAccount implements Serializable{
-	private static final long serialVersionUID = 9197966309613693000L;
+	private static final long serialVersionUID = 2494682630124862474L;
 	
 	private BigInteger id;
 	private String loginName;

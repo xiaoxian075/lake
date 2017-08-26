@@ -27,11 +27,8 @@ public class AreaCtr {
 	public String selectlist(HttpServletRequest request,Model model){
 		String spageNum = request.getParameter("pageNum");
 		String spageSize = request.getParameter("pageSize");
-		int pageNum = 1,pageSize = 10;
-		if (spageNum!=null)
-			pageNum = Integer.valueOf(spageNum);
-		if (spageSize!=null)
-			pageSize = Integer.valueOf(spageSize);
+		int pageNum = Integer.valueOf(spageNum);
+		int pageSize = Integer.valueOf(spageSize);
 		
 		NPageInfo<NArea> info = iArea.selectListByPage(pageNum,pageSize);
 		return JsonUtil.toString(new ReqMsg(0,"succ",info));

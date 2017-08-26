@@ -25,6 +25,7 @@ public class AccountCtr {
 	@RequestMapping("selectlist")
 	@ResponseBody
 	public String selectlist(HttpServletRequest request,Model model){
+		
 		NPageInfo<NAccount> info = iAccount.selectListByPage(1,10);
 		return JsonUtil.toString(new ReqMsg(0,"succ",info));
 	}
