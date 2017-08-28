@@ -2,7 +2,7 @@ package lake.entity;
 
 import java.io.Serializable;
 
-public class RedisConfig implements Serializable {
+public class NRedis implements Serializable {
 	private static final long serialVersionUID = -441339164636842208L;
 	
 	private String host;		// Redis服务器IP

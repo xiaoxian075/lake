@@ -3,6 +3,12 @@ package com.node;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+import lake.db.IBaseDB;
 
 /**
  * 分页封装（分页返回对象）
@@ -44,6 +50,27 @@ public class NPageInfo<T> implements Serializable {
 		}
 		
 		return new NPageInfo<T>(total,pages,pageNum,pageSize,size,arrData);
+	}
+	
+	public static <T> NPageInfo<T> createNew(int total, int pages, int pageNum, int pageSize, int size, List<T> listData) {
+		List<T> listT = new ArrayList<T>();
+		for (T t : listData) {
+			listT.add(t);
+		}
+		return new NPageInfo<T>(total,pages,pageNum,pageSize,size,listT);
+	}
+	
+	public static <T> NPageInfo<T> selectList(int pageNum, int pageSize, IBaseDB<T> iDb, Map<String,Object> params) {
+		PageHelper.startPage(pageNum,pageSize);
+		List<T> pageList = iDb.selectList(params);
+		PageInfo<T> pageInfo = new PageInfo<T>(pageList);
+		
+		return NPageInfo.createNew((int)pageInfo.getTotal(), 
+				pageInfo.getPages(), 
+				pageInfo.getPageNum(), 
+				pageInfo.getPageSize(), 
+				pageInfo.getSize(), 
+				pageList);
 	}
 	
 	private int total;		//总共有多少项
@@ -105,4 +132,6 @@ public class NPageInfo<T> implements Serializable {
 		return "NPageInfo [total=" + total + ", pages=" + pages + ", pageNum=" + pageNum + ", pageSize=" + pageSize
 				+ ", size=" + size + ", listT=" + listT + "]";
 	}
+
+
 }

@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.redis.RedisUtil;
 
-import lake.entity.RedisConfig;
+import lake.entity.NRedis;
 
 @Service
 public class ConfigInit {
 
 	@Autowired
-	private RedisConfig redisConfig;
+	private NRedis redis;
 
 	@PostConstruct
 	public void init() {
-		RedisUtil.init(redisConfig);
+		RedisUtil.init(redis);
 	}
 
 	@PreDestroy

@@ -1,11 +1,12 @@
 package lake.db;
 
-import com.node.NPageInfo;
+import org.springframework.stereotype.Repository;
 
 import lake.entity.NAccount;
 
-public interface IAccountDB {
+@Repository
+public interface IAccountDB extends IBaseDB<NAccount> {
 
-	NPageInfo<NAccount> selectListByPage(int pageNum, int pageSize);
+	//NPageInfo<NAccount> selectListByPage(int pageNum, int pageSize);
 
 }

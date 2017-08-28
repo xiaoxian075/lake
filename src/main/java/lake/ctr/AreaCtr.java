@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.node.NPageInfo;
-import com.node.ReqMsg;
 import com.util.JsonUtil;
 
 import lake.entity.NArea;
@@ -20,9 +19,9 @@ import lake.service.IAreaService;
 public class AreaCtr {
 
 	@Autowired
-	private IAreaService iArea;
+	private IAreaService iAreaService;
 
-	@RequestMapping("selectlist")
+	@RequestMapping("selectlist.do")
 	@ResponseBody
 	public String selectlist(HttpServletRequest request,Model model){
 		String spageNum = request.getParameter("pageNum");
@@ -30,7 +29,8 @@ public class AreaCtr {
 		int pageNum = Integer.valueOf(spageNum);
 		int pageSize = Integer.valueOf(spageSize);
 		
-		NPageInfo<NArea> info = iArea.selectListByPage(pageNum,pageSize);
-		return JsonUtil.toString(new ReqMsg(0,"succ",info));
+		NPageInfo<NArea> info = iAreaService.selectList(pageNum,pageSize);
+		return JsonUtil.toSucc(info);
+		//return JsonUtil.toString(new ReqMsg(0,"succ",info));
 	}
 }

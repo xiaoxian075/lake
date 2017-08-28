@@ -1,11 +1,11 @@
 package lake.db;
 
-import com.node.NPageInfo;
+import org.springframework.stereotype.Repository;
 
 import lake.entity.NArea;
 
-public interface IAreaDB {
+@Repository
+public interface IAreaDB extends IBaseDB<NArea> {
 
-	NPageInfo<NArea> selectListByPage(int pageNum, int pageSize);
 
 }

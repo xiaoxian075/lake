@@ -28,7 +28,9 @@
 	        </bean>      
 	    </mvc:message-converters>
 	</mvc:annotation-driven>
-	<mvc:resources location="/" mapping="/**/*.txt"/> 
+	<mvc:resources location="/" mapping="/*.jsp"/> 
+	<mvc:resources location="/" mapping="/**/*.html"/> 
+	<mvc:resources location="/" mapping="/**/*.jsp"/> 
 	<mvc:resources location="/" mapping="/**/*.js"/> 
 	
 	<!-- 默认扫描的包路径 -->

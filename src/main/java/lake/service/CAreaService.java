@@ -8,15 +8,15 @@ import com.node.NPageInfo;
 import lake.db.IAreaDB;
 import lake.entity.NArea;
 
-@Service("iArea")
+@Service
 public class CAreaService implements IAreaService{
 
 	@Autowired
-	private IAreaDB iArea;
+	private IAreaDB iAreaDB;
 	
 	@Override
-	public NPageInfo<NArea> selectListByPage(int pageNum, int pageSize) {
-		return iArea.selectListByPage(pageNum,pageSize);
+	public NPageInfo<NArea> selectList(int pageNum, int pageSize) {
+		return NPageInfo.selectList(pageNum,pageSize,iAreaDB, null);
 	}
 
 }

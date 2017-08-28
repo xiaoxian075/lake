@@ -10,10 +10,14 @@ import lake.service.IAccountService;
 public class TimerTest {
 	@Autowired
 	private IAccountService iAccount;
+	
+//	@Autowired
+//	private IAreaService iArea;
 
 	
 	public void run() {
-		NPageInfo<NAccount> info = iAccount.selectListByPage(1,10);
+		NPageInfo<NAccount> info = iAccount.selectList(2,5);
+		//NPageInfo<NArea> info = iArea.selectList(3,5);
 		System.out.println(info);
 	}
 }

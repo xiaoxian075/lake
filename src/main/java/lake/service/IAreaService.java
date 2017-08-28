@@ -6,6 +6,6 @@ import lake.entity.NArea;
 
 public interface IAreaService {
 
-	NPageInfo<NArea> selectListByPage(int pageNum, int pageSize);
+	NPageInfo<NArea> selectList(int pageNum, int pageSize);
 
 }

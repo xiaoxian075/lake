@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import lake.entity.RedisConfig;
+import lake.entity.NRedis;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -25,9 +25,10 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public final class RedisUtil{
 	
-	private static RedisConfig redisConfig;
+	private static NRedis redisConfig;
 	
-	public static boolean init(RedisConfig _redisConfig) {
+	public static boolean init(NRedis _redisConfig) {
+		redisConfig = _redisConfig;
         try {
             JedisPoolConfig config = new JedisPoolConfig();
             config.setMaxTotal(redisConfig.getMaxActive());

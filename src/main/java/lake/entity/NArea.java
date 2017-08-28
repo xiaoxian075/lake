@@ -118,4 +118,11 @@ public class NArea implements Serializable {
 	public void setXz_code(String xz_code) {
 		this.xz_code = xz_code;
 	}
+	@Override
+	public String toString() {
+		return "NArea [id=" + id + ", area_name=" + area_name + ", en_name=" + en_name + ", word_index=" + word_index
+				+ ", parent_id=" + parent_id + ", sort_no=" + sort_no + ", area_level=" + area_level + ", is_city="
+				+ is_city + ", region=" + region + ", level_area=" + level_area + ", state=" + state + ", post_code="
+				+ post_code + ", xz_code=" + xz_code + "]";
+	}
 }

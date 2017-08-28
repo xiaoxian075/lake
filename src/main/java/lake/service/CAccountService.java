@@ -9,15 +9,16 @@ import lake.db.IAccountDB;
 import lake.entity.NAccount;
 import lake.service.IAccountService;
 
-@Service("iAccount")
+@Service
 public class CAccountService implements IAccountService{
 
 	@Autowired
-	private IAccountDB iAccount;
-	
-	
-	public NPageInfo<NAccount> selectListByPage(int pageNum, int pageSize) {
-		return iAccount.selectListByPage(pageNum,pageSize);
+	private IAccountDB iAccountDB;
+
+	@Override
+	public NPageInfo<NAccount> selectList(int pageNum, int pageSize) {
+		return NPageInfo.selectList(pageNum,pageSize,iAccountDB, null);
 	}
+	
 
 }
