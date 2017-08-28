@@ -15,7 +15,7 @@
  			http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
 	default-lazy-init="false">
 	
-	<bean id="redisConfig" class="lake.entity.RedisConfig">
+	<bean id="redisConfig" class="lake.entity.NRedis">
 		<property name="host" value="${redis.host}"/>
 		<property name="port" value="${redis.port}"/>
 		<property name="auth" value="${redis.auth}"/>
