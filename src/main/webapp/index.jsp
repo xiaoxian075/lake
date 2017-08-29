@@ -10,61 +10,97 @@
 	<title>分页</title>
 	
 	<script type="text/javascript">
-		var _option = [
-			{
-				"name":"ID",
-				"render":function (data) {
-					return data.id;
-				}
-			},
-			{
-				"name":"用户名",
-				"render":function (data) {
-					return data.userName;
-				}
-			},
-			{
-				"name":"登入名",
-				"render":function (data) {
-					return data.loginName;
-				}
-			},
-			{
-				"name":"昵称",
-				"render":function (data) {
-					return data.nickName;
-				}
-			},
-			{
-				"name":"姓名",
-				"render":function (data) {
-					return data.identityName;
-				}
-			},
-			{
-				"name":"身份证",
-				"render":function (data) {
-					return data.identityID;
-				}
-			},
-			{
-				"name":"时间",
-				"render":function (data) {
-					//return data.createTime;
-					return new Date(data.createTime).format("yyyy-MM-dd hh:mm:ss");
-				}
-			}
-		];
+		var options = {
+				tb:function () {
+					return $('#mytb');
+				},
+				url:"test.do",
+				params:{},
+/* 				cbparam:function (data) {
+						data["username"] = $("#username");
+						data["identifyid"] = $("#identifyid");
+						return data;
+				}, */
+				columns : [
+					{
+						"width":"40px",
+						"name":"ID",
+						"render":function (data) {
+							return data.id;
+						}
+					},
+					{
+						"width":"100px",
+						"name":"用户名",
+						"render":function (data) {
+							return data.userName;
+						}
+					},
+					{
+						"width":"100px",
+						"name":"登入名",
+						"render":function (data) {
+							return data.loginName;
+						}
+					},
+					{
+						"width":"100px",
+						"name":"昵称",
+						"render":function (data) {
+							return data.nickName;
+						}
+					},
+					{
+						"width":"100px",
+						"name":"姓名",
+						"render":function (data) {
+							return data.identityName;
+						}
+					},
+					{
+						"width":"200px", 
+						"name":"身份证",
+						"render":function (data) {
+							return data.identityID;
+						}
+					},
+					{
+						"width":"150px",
+						"name":"时间",
+						"render":function (data) {
+							return new Date(data.createTime).format("yyyy-MM-dd hh:mm:ss");
+						}
+					},
+					{
+						"width":"100px",
+						"name":"操作",
+						"render":function (data) {
+							var str = "";
+							str += "<a href=\"#\" style=\"color:#0000E3\">修改</a>";
+							str += "&nbsp;&nbsp;<a href=\"#\" style=\"color:#FF0000\">删除</a>";
+							//str += "<input type=\"button\" value=\"修改\" style=\"background:#00FFFF;color:#000000\">";
+							//str += "&nbsp;&nbsp;<input type=\"button\" value=\"删除\" style=\"background:#FF9797;color:#FFFFFF\">";
+							return str;
+						}
+					}
+				],
+				
+		};
 		
 	
 		$(function(){
-			ptinit($('#mydb'), "test.do", {}, _option);
+			ptinit(options);
 			
 		});
 	</script>
 </head>
 <body>
-	<div id="mydb"></div>
+	<div id="mysearch" style="margin:20px 30px 5px 30px;text-align:left">
+		用户名：<input id="username" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		身份证：<input id="identifyid" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="search" type="button" value="查询">
+	</div>
+	<div id="mytb" style="margin:5px 30px 0px 30px;text-align:center"></div>
 </body>
 </html>
 	

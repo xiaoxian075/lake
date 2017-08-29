@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.util.StringUtil;
 import com.node.NPageInfo;
 import com.util.JsonUtil;
 
@@ -41,19 +42,32 @@ public class TestCtr {
 	@RequestMapping("test.do")
 	@ResponseBody
 	public String test(HttpServletRequest request,Model model){
-		String spage = request.getParameter("page");
-		int page = Integer.valueOf(spage);
+		int pageNum = 1, pageSize=10;
 		
-		int pageIndex = page;//当前页
-		int pageSize =5;//设置每页要展示的数据数量(根据项目需求灵活设置)
-		//int rowCount = 0;
+		String spageNum = request.getParameter("pageNum");
 		
-		NPageInfo<NAccount> info = iAccountService.selectList(pageIndex,pageSize);
+		if (StringUtil.isNotEmpty(spageNum)) {
+			Integer _pageNum = Integer.valueOf(spageNum);
+			if (_pageNum!=null && _pageNum>0) {
+				pageNum = _pageNum;
+			}
+		}
+		String spageSize = request.getParameter("pageSize");
+		if (StringUtil.isNotEmpty(spageSize)) {
+			Integer _pageSize = Integer.valueOf(spageSize);
+			if (_pageSize!=null && _pageSize>0) {
+				pageSize = _pageSize;
+			}
+		}
 		
-		List<NAccount> listData = info.getListT();
-		String strlist = JsonUtil.toString(listData);
-		String json_data = "{\"pageCount\":"+info.getPages()+",\"CurrentPage\":"+pageIndex+",\"list\":" + strlist + "}";
-		return json_data;
+
+		NPageInfo<NAccount> info = iAccountService.selectList(pageNum,pageSize);
+		
+		return JsonUtil.toSucc(info);
+//		List<NAccount> rows = info.getListT();
+//		String strlist = JsonUtil.toString(rows);
+//		String json_data = "{\"pageCount\":"+info.getPages()+",\"CurrentPage\":"+pageIndex+",\"list\":" + strlist + "}";
+//		return json_data;
 	}
 	
 	@RequestMapping("selectByFy.do")
