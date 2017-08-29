@@ -9,7 +9,7 @@
 
 
 	<!-- 字符集过滤器 -->
-	<filter>  
+<!-- 	<filter>  
 	    <filter-name>encodingFilter</filter-name>  
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
 	    <init-param>  
@@ -24,9 +24,25 @@
 	
 	<filter-mapping>  
 	    <filter-name>encodingFilter</filter-name>
-	    <!-- <filter-name>characterEncodingFilter</filter-name>  -->
 	    <url-pattern>/*</url-pattern>  
-	</filter-mapping>
+	</filter-mapping> -->
+	
+<!-- 	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
      
   
 	<!-- spring MVC的核心就是DispatcherServlet，使用springMVC的第一步就是将下面的servlet放入web.xml  
@@ -42,16 +58,6 @@
     </init-param> 
 	  <load-on-startup>1</load-on-startup>  
 	</servlet>
-	
-<!-- 	<servlet>  
-	  <servlet-name>context</servlet-name>  
-	  <servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
-	  <init-param>  
-        <param-name>contextConfigLocation</param-name>  
-        <param-value>classpath:spring.xml</param-value>  
-    </init-param> 
-	  <load-on-startup>1</load-on-startup>  
-	</servlet> -->
 	
 	<!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 -->  
 	<servlet-mapping>  
