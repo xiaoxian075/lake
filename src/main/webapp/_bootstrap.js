@@ -101,14 +101,14 @@ function _cbData(data) {
 	var list = data.listT;
 	
 	var tbody="";
-	tbody += "<table class=\"table table-striped table-bordered table-hover\">";
+	tbody += "<table class='table table-striped table-bordered table-hover'>";
 	tbody +=	"<tr>";
 	for (var k=0; k<_bootOpt.columns.length; k++) {
-		if (_bootOpt.columns[k].width==null) {
-			tbody += "<th style=\"text-align:center\">"+_bootOpt.columns[k].name+"</th>";
-		} else {
-			tbody += "<th style=\"width:"+_bootOpt.columns[k].width+";text-align:center\">"+_bootOpt.columns[k].name+"</th>";
+		var _mystyle = "text-align:center";
+		if (_bootOpt.columns[k].style==null) {
+			_mystyle = _bootOpt.columns[k].style;
 		}
+		tbody += "<th style='"+ _mystyle+"'>"+_bootOpt.columns[k].name+"</th>";
 	}
 	tbody += 	"</tr>";
 	
@@ -117,11 +117,11 @@ function _cbData(data) {
 		var trs = "";
 		trs += 	"<tr>";
 		for (var k=0; k<_bootOpt.columns.length; k++) {
-			if (_bootOpt.columns[k].width==null) {
-				tbody += "<td style=\"text-align:center\">"+_bootOpt.columns[k].render(list[i])+"</td>";
-			} else {
-				tbody += "<td style=\"width:"+_bootOpt.columns[k].width+";text-align:center\">"+_bootOpt.columns[k].render(list[i])+"</td>";
+			var _mystyle = "text-align:center";
+			if (_bootOpt.columns[k].style==null) {
+				_mystyle = _bootOpt.columns[k].style;
 			}
+			tbody += "<td style='"+_mystyle+"'>"+_bootOpt.columns[k].render(list[i])+"</td>";
 		}
 	    trs += 	"</tr>";
 	    
@@ -131,8 +131,6 @@ function _cbData(data) {
 	tbody += "</table>"
 		
 	tbody += "<div style=\"text-align:center;\">";
-	//<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>
-	tbody += 	"<label style='float:left'><input class='mybox' type='checkbox' value='' onclick='pitch(this);' />全选</label>";
 	tbody += 	"共&nbsp;<label id='_pages'><font size='3' color='red'>"+data.pages+"</font></label>&nbsp;页";
 	tbody += 	"&nbsp;&nbsp;跳转至<input id='_pageNum' type='text' value=1 onchange='_skip();' style='text-align:center;width:40px;height:20px' maxlength='8' size='14'>页";
 	tbody += 	"&nbsp;&nbsp;每页<select id='_pageSize' onchange='_changePage();' style='width:50px;height:20px'><option value=5>5</option><option value=10>10</option><option value=20>20</option><option value=50>50</option><option value=100>100</option></select>条";

@@ -22,66 +22,66 @@
 				},
 				columns : [
 					{
-						"width":"40px",
-						"name":"",
-						"render":function (data) {
+						style:"width:20px;text-align:center",
+						name:"<input id='imybox' class='mybox' type='checkbox' onclick='batchPitch(this);' />",
+						render:function (data) {
 							return "<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>";
 						}
 						
 					},
 					{
-						"width":"40px",
-						"name":"ID",
-						"render":function (data) {
+						style:"width:40px;text-align:center",
+						name:"ID",
+						render:function (data) {
 							return data.id;
 						}
 					},
 					{
-						"width":"100px",
-						"name":"用户名",
-						"render":function (data) {
+						style:"width:100px;text-align:center",
+						name:"用户名",
+						render:function (data) {
 							return data.userName;
 						}
 					},
 					{
-						"width":"100px",
-						"name":"登入名",
-						"render":function (data) {
+						style:"width:100px;text-align:center",
+						name:"登入名",
+						render:function (data) {
 							return data.loginName;
 						}
 					},
 					{
-						"width":"100px",
-						"name":"昵称",
-						"render":function (data) {
+						style:"width:100px;text-align:center",
+						name:"昵称",
+						render:function (data) {
 							return data.nickName;
 						}
 					},
 					{
-						"width":"100px",
-						"name":"姓名",
-						"render":function (data) {
+						style:"width:100px;text-align:center",
+						name:"姓名",
+						render:function (data) {
 							return data.identityName;
 						}
 					},
 					{
-						"width":"200px", 
-						"name":"身份证",
-						"render":function (data) {
+						style:"width:200px;text-align:center",
+						name:"身份证",
+						render:function (data) {
 							return data.identityID;
 						}
 					},
 					{
-						"width":"150px",
-						"name":"时间",
-						"render":function (data) {
+						style:"width:150px;text-align:center",
+						name:"时间",
+						render:function (data) {
 							return new Date(data.createTime).format("yyyy-MM-dd hh:mm:ss");
 						}
 					},
 					{
-						"width":"100px",
-						"name":"操作",
-						"render":function (data) {
+						style:"width:100px;text-align:center",
+						name:"操作",
+						render:function (data) {
 							var str = "";
 							str += "<a href='#' style='color:#0000E3' onclick='edit("+data.id+");'>修改</a>";
 							str += "&nbsp;&nbsp;<a href='#' style='color:#FF0000' onclick='del("+data.id+");'>删除</a>";

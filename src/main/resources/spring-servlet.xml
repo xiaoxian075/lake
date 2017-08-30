@@ -12,22 +12,6 @@
        		http://www.springframework.org/schema/context/spring-context.xsd"
 	default-lazy-init="false">
 	
-	
-	
-
-	<!-- 添加注解驱动 -->
-<!-- 	<mvc:annotation-driven>
-		<mvc:message-converters>     
-	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">     
-	            <property name="supportedMediaTypes">     
-	                <list>     
-	                    <value>text/plain;charset=UTF-8</value>     
-	                    <value>text/html;charset=UTF-8</value>     
-	                </list>     
-	            </property>     
-	        </bean>      
-	    </mvc:message-converters>
-	</mvc:annotation-driven> -->
  	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">

@@ -13,7 +13,7 @@
        		http://www.springframework.org/schema/context/spring-context.xs
        		http://www.springframework.org/schema/tx
  			http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
-	default-lazy-init="false">
+	>
 	
 	<bean id="redisConfig" class="lake.entity.NRedis">
 		<property name="host" value="${redis.host}"/>
