@@ -27,7 +27,7 @@ public class AccountCtr {
 	public String selectlist(HttpServletRequest request,Model model){
 		int pageNum = 1, pageSize=10;
 		
-		String spageNum = request.getParameter("pageNum");
+		String spageNum = request.getParameter("pageNum"); 
 		
 		if (StringUtil.isNotEmpty(spageNum)) {
 			Integer _pageNum = Integer.valueOf(spageNum);
