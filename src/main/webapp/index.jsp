@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="./plugin/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./plugin/bootstrap-paginator.js"></script>
 	<script type="text/javascript" src="./_common.js"></script>
-	<script type="text/javascript" src="./_boostrap.js"></script>
+	<script type="text/javascript" src="./_bootstrap.js"></script>
 	<title>分页</title>
 	
 	<script type="text/javascript">
@@ -14,13 +14,13 @@
 				tb:function () {
 					return $('#mytb');
 				},
-				url:"test.do",
-				params:{},
-/* 				cbparam:function (data) {
-						data["username"] = $("#username");
-						data["identifyid"] = $("#identifyid");
+				url:"account/selectlist.do",
+				//params:{},
+ 				params:function (data) {
+						data["userName"] = $("#userName").val();
+						data["identifyID"] = $("#identifyID").val();
 						return data;
-				}, */
+				},
 				columns : [
 					{
 						"width":"40px",
@@ -83,24 +83,34 @@
 							return str;
 						}
 					}
-				],
-				
+				]
 		};
-		
-	
+
 		$(function(){
-			ptinit(options);
-			
+			bootInit(options);
 		});
+		
+		function mySearch() {
+ 			bootSearch();
+		}
+		function myClear() {
+			$("#userName").val("");
+			$("#identifyID").val("");
+			bootSearch();
+		}
 	</script>
 </head>
 <body>
 	<div id="mysearch" style="margin:20px 30px 5px 30px;text-align:left">
-		用户名：<input id="username" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		身份证：<input id="identifyid" type="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="search" type="button" value="查询">
+		用户名：<input id="userName" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		身份证：<input id="identifyID" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" value="查询" onclick="mySearch()">&nbsp;&nbsp;
+		<input type="button" value="清空" onclick="myClear()">
 	</div>
 	<div id="mytb" style="margin:5px 30px 0px 30px;text-align:center"></div>
+<!--    	<div id="mytb" style="text-align:center;"><table id="userTable" class="table table-striped table-bordered table-hover"></table></div>
+	<div style="text-align:center;"><ul id="useroption"></ul></div>  -->
+
 </body>
 </html>
 	

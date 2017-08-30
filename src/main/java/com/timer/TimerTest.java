@@ -16,7 +16,7 @@ public class TimerTest {
 
 	
 	public void run() {
-		NPageInfo<NAccount> info = iAccount.selectList(1,5);
+		NPageInfo<NAccount> info = iAccount.selectList(1,5,null,null);
 		//NPageInfo<NArea> info = iArea.selectList(3,5);
 		System.out.println(info);
 	}
