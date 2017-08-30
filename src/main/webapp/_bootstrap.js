@@ -131,6 +131,8 @@ function _cbData(data) {
 	tbody += "</table>"
 		
 	tbody += "<div style=\"text-align:center;\">";
+	//<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>
+	tbody += 	"<label style='float:left'><input class='mybox' type='checkbox' value='' onclick='pitch(this);' />全选</label>";
 	tbody += 	"共&nbsp;<label id='_pages'><font size='3' color='red'>"+data.pages+"</font></label>&nbsp;页";
 	tbody += 	"&nbsp;&nbsp;跳转至<input id='_pageNum' type='text' value=1 onchange='_skip();' style='text-align:center;width:40px;height:20px' maxlength='8' size='14'>页";
 	tbody += 	"&nbsp;&nbsp;每页<select id='_pageSize' onchange='_changePage();' style='width:50px;height:20px'><option value=5>5</option><option value=10>10</option><option value=20>20</option><option value=50>50</option><option value=100>100</option></select>条";

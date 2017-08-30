@@ -23,6 +23,14 @@
 				columns : [
 					{
 						"width":"40px",
+						"name":"",
+						"render":function (data) {
+							return "<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>";
+						}
+						
+					},
+					{
+						"width":"40px",
 						"name":"ID",
 						"render":function (data) {
 							return data.id;
@@ -112,6 +120,7 @@
 		身份证：<input id="identifyID" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="button" value="查询" onclick="mySearch()">&nbsp;&nbsp;
 		<input type="button" value="清空" onclick="myClear()">
+		<button type="button" onclick="myAdd();" style="float:right" ><i class="icon-search"></i>+新增</button>
 	</div>
 	<div id="mytb" style="margin:5px 30px 0px 30px;text-align:center"></div>
 <!--    	<div id="mytb" style="text-align:center;"><table id="userTable" class="table table-striped table-bordered table-hover"></table></div>
