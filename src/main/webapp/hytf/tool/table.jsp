@@ -1,12 +1,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="./plugin/bootstrap.min.css">
-	<script type="text/javascript" src="./plugin/jquery.min.js"></script>
-	<script type="text/javascript" src="./plugin/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./plugin/bootstrap-paginator.js"></script>
-	<script type="text/javascript" src="./_common.js"></script>
-	<script type="text/javascript" src="./_bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../plugin/bootstrap.min.css">
+	<script type="text/javascript" src="../../plugin/jquery.min.js"></script>
+	<script type="text/javascript" src="../../plugin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../plugin/bootstrap-paginator.js"></script>
+	<script type="text/javascript" src="../js/_common.js"></script>
+	<script type="text/javascript" src="../js/_bootstrap.js"></script>
 	<title>分页</title>
 	
 	<script type="text/javascript">
@@ -14,7 +14,7 @@
 				tb:function () {
 					return $('#mytb');
 				},
-				url:"account/selectlist.do",
+				url:"../../account/selectlist.do",
  				params:function (param) {
  					param["userName"] = $("#userName").val();
  					param["identifyID"] = $("#identifyID").val();
