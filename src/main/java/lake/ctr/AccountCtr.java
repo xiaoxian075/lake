@@ -25,6 +25,9 @@ public class AccountCtr {
 	@RequestMapping("selectlist.do")
 	@ResponseBody
 	public String selectlist(HttpServletRequest request,Model model){
+		String loginUser = (String) request.getSession().getAttribute("user");
+		System.out.println(loginUser);
+		
 		int pageNum = 1, pageSize=10;
 		
 		String spageNum = request.getParameter("pageNum");
