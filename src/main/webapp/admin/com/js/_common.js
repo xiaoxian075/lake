@@ -9,7 +9,26 @@ function ajaxPost(url,params,cbOK) {
 		cache:false,
 		success: function (data) {
 			if (data.code!=0) {
-				alert(data.desc);
+				swal(data.desc);
+				return;
+			}
+			cbOK(data.info);
+		}
+	});
+}
+
+function ajaxPost2(url,params,cbOK,cbErr) {
+	$.ajax({
+		async:true,
+		url:url,
+		type:"post",
+		dataType:"json",
+		data:params,
+		cache:false,
+		success: function (data) {
+			if (data.code!=0) {
+				//swal(data.desc);
+				cbErr(data);
 				return;
 			}
 			cbOK(data.info);

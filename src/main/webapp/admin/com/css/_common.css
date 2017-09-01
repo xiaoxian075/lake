@@ -1,0 +1,139 @@
+*{font-size:10pt;margin:0;padding:0;}
+body{font-family:'微软雅黑'; margin:0 auto;min-width:980px;}
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+table{border-collapse:collapse;border-spacing: 0;} 
+/* *{font-size:9pt;margin:0;padding:0;}
+body{font-family:'微软雅黑'; margin:0 auto;min-width:980px;}
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+img{border:0;}
+dl,dt,dd,span{margin:0;padding:0;display:block;}
+a,a:focus{text-decoration:none;color:#000;outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover{color:#00a4ac;text-decoration:none;}
+table{border-collapse:collapse;border-spacing: 0;}
+cite{font-style:normal;}
+h2{font-weight:normal;} */
+
+.toolbar{float:left;}
+.toolbar li{background:url(../images/toolbg.gif) repeat-x; line-height:33px; height:33px; border:solid 1px #d3dbde; float:left; padding-right:10px; margin-right:5px;border-radius: 3px; behavior:url(js/pie.htc); cursor:pointer;}
+.toolbar li span{float:left; margin-left:10px; margin-right:5px; margin-top:5px;}
+
+.place{height:40px; background:url(../../images/righttop.gif) repeat-x;}
+.place span{line-height:40px; font-weight:bold;float:left; margin-left:12px;}
+.placeul li{float:left; line-height:40px; padding-left:7px; padding-right:12px; background:url(../../images/rlist.gif) no-repeat right;}
+.placeul li:last-child{background:none;}
+
+.leftinfo{margin:10px 30px 30px 30px;text-align:left}
+.centerinfo{margin:10px 30px 0px 30px;text-align:center}
+
+.tablelist{border:solid 1px #cbcbcb; width:100%; clear:both;}
+.tablelist th{background:url(../../images/th.gif) repeat-x; height:34px; line-height:34px; border-bottom:solid 1px #b6cad2; text-indent:11px; text-align:center;}
+.tablelist td{line-height:35px; text-indent:11px; border: dotted 1px #c7c7c7;text-align:center;}
+.tablelist tbody tr.odd{background:#f5f8fa;}
+.tablelist tbody tr:hover{background:#e5ebee;}
+
+.tablelinklook{color:#7aba7b;}
+.tablelinkedit{color:#056dae;}
+.tablelinkdel{color:#c9302c;}
+ 
+ .button_search {
+ 	width: 70px;
+	height: 23px;
+
+	font-size: 14px;
+	font-family: 微软雅黑;
+	letter-spacing: 6px;
+	padding-left: 8px; 
+	
+	border-radius: 5px;
+	
+	background-color: #7aba7b;	/*#50B950*/
+ }
+ 
+  .button_clean {
+ 	width: 70px;
+	height: 23px;
+
+	font-size: 14px;
+	font-family: 微软雅黑;
+	letter-spacing: 6px;
+	padding-left: 8px; 
+	
+	border-radius: 5px;
+	
+	background-color: #d59392;
+ }
+ 
+  .button_add {
+
+  	width: 100px;
+	height: 30px;
+
+	font-size: 18px;
+	font-family: 微软雅黑;
+	letter-spacing: 8px;
+	padding-left: 12px; 
+	
+	border-radius: 5px;
+	
+	background-color: #50B950;
+	
+ 	background: -webkit-linear-gradient(top,#66B5E6,#2e88c0);
+	background: -moz-linear-gradient(top,#66B5E6,#2e88c0);
+	background: linear-gradient(top,#66B5E6,#2e88c0);
+	background: -ms-linear-gradient(top,#66B5E6,#2e88c0); 
+	
+	box-shadow: 0 1px 2px #8AC1E2 inset,0 -1px 0 #316F96 inset;
+	
+	color:#fff;
+	text-shadow: 1px 1px 0.5px #22629B;
+ }
+ 
+   .button_del {
+
+  	width: 100px;
+	height: 30px;
+
+	font-size: 18px;
+	font-family: 微软雅黑;
+	letter-spacing: 8px;
+	padding-left: 12px; 
+	
+	border-radius: 5px;
+	
+	background-color: #c9302c;
+	
+  	background: -webkit-linear-gradient(top,#d43f3a,#c7254e);
+	background: -moz-linear-gradient(top,#d43f3a,#c7254e);
+	background: linear-gradient(top,#d43f3a,#c7254e);
+	background: -ms-linear-gradient(top,#d43f3a,#c7254e);  
+	
+	box-shadow: 0 1px 2px #8AC1E2 inset,0 -1px 0 #316F96 inset;
+	
+	color:#fff;
+	text-shadow: 1px 1px 0.5px #22629B;
+ }
+/*  .button1 {
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    font-family: 微软雅黑;
+    letter-spacing: 8px;
+    padding-left: 12px;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(top, #66B5E6, #2e88c0);
+    background: -moz-linear-gradient(top, #66B5E6, #2e88c0);
+    background: linear-gradient(top, #66B5E6, #2e88c0);
+    background: -ms-linear-gradient(top, #66B5E6, #2e88c0);
+    border: 1px solid #2576A8;
+    box-shadow: 0 1px 2px #B8DCF1 inset, 0 -1px 0 #316F96 inset;
+    color: #fff;
+    text-shadow: 1px 1px 0.5px #22629B;
+}
+.button1:hover {
+    background: -webkit-linear-gradient(top, #8DC9EF, #4E9FD1);
+    background: -moz-linear-gradient(top, #8DC9EF, #4E9FD1);
+    background: linear-gradient(top, #8DC9EF, #4E9FD1);
+    background: -ms-linear-gradient(top, #8DC9EF, #4E9FD1);
+} */

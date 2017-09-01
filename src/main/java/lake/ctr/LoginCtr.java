@@ -14,6 +14,7 @@ import com.util.JsonUtil;
 @Controller
 @RequestMapping("login")
 public class LoginCtr {
+	
 	@RequestMapping("login.do")
 	@ResponseBody
 	public String login(HttpServletRequest request,Model model){
@@ -26,10 +27,15 @@ public class LoginCtr {
 			return JsonUtil.toString(1,"参数错误",null);
 		}
 		
+		if (!loginUser.equals("admin")) {
+			return JsonUtil.toString(2,"用户名不存在",null);
+		}
+		if (!loginPwd.equals("123456")) {
+			return JsonUtil.toString(3,"密码不对",null);
+		}
+		
 		request.getSession().setAttribute("user", loginUser);
 		
-
-		//NPageInfo<NAccount> info = iAccountService.selectList(pageNum,pageSize,userName,identifyID);
 		return JsonUtil.toSucc(null);
 	}
 }

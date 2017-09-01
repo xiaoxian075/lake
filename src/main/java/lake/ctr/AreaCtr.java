@@ -31,6 +31,5 @@ public class AreaCtr {
 		
 		NPageInfo<NArea> info = iAreaService.selectList(pageNum,pageSize);
 		return JsonUtil.toSucc(info);
-		//return JsonUtil.toString(new ReqMsg(0,"succ",info));
 	}
 }
