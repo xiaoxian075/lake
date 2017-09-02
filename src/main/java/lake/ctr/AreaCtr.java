@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.node.NNetBase;
 import com.node.NPageInfo;
-import com.util.JsonUtil;
+import com.node.NRespone;
 
+import lake.ctr.node.NNetArea;
 import lake.entity.NArea;
 import lake.service.IAreaService;
 
@@ -24,12 +26,12 @@ public class AreaCtr {
 	@RequestMapping("selectlist.do")
 	@ResponseBody
 	public String selectlist(HttpServletRequest request,Model model){
-		String spageNum = request.getParameter("pageNum");
-		String spageSize = request.getParameter("pageSize");
-		int pageNum = Integer.valueOf(spageNum);
-		int pageSize = Integer.valueOf(spageSize);
+		NNetBase<NNetArea> net = NNetBase.createNew(request,NNetArea.class);
+		if (net.getCode()!=0) {
+			return NRespone.toStr(1,"参数错误",null);
+		}
 		
-		NPageInfo<NArea> info = iAreaService.selectList(pageNum,pageSize);
-		return JsonUtil.toSucc(info);
+		NPageInfo<NArea> info = iAreaService.selectList(net.getT());
+		return NRespone.toStr(info);
 	}
 }

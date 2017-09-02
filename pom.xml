@@ -95,11 +95,11 @@
             <artifactId>commons-dbcp</artifactId>  
             <version>1.4</version>  
         </dependency>
-        <dependency>
+<!--         <dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
 			<version>1.6</version>
-		</dependency>
+		</dependency> -->
 	
 	<!-- slf4j begin -->
 	<dependency>
@@ -150,19 +150,19 @@
 	    <version>1.6.1</version>
 	</dependency>
 
-<!-- 	<dependency>  
+ 	<dependency>  
 	   <groupId>javax.servlet</groupId>  
 	   <artifactId>jstl</artifactId>  
 	   <version>1.2</version>  
-	   <scope>provided</scope>
-	   <scope>runtime</scope>
+	   <!-- <scope>provided</scope> -->
+	   <!-- <scope>runtime</scope> -->
 	</dependency>
 	<dependency>
 	    <groupId>taglibs</groupId>
 	    <artifactId>standard</artifactId>
 	    <version>1.1.2</version>
-	    <scope>provided</scope> 
-	</dependency> -->
+	    <!-- <scope>provided</scope> --> 
+	</dependency> 
 	
 	<dependency>
 	    <groupId>com.github.pagehelper</groupId>
@@ -201,11 +201,11 @@
 		<version>2.7.3</version>
 	</dependency> 
 
-<!-- 	<dependency>
+ 	<dependency>
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-lang3</artifactId>
 	    <version>3.4</version>
-	</dependency> -->
+	</dependency> 
 	
 	<!-- 定时任务 quartz -->
 	<dependency>

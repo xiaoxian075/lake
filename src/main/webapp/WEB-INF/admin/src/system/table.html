@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="com/plugin/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="com/plugin/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="com/css/_common.css" />
+	<script type="text/javascript" src="com/plugin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="com/plugin/bootstrap-paginator.js"></script>
+	<script type="text/javascript" src="com/js/_common.js"></script>
+	<script type="text/javascript" src="com/js/_bootstrap.js"></script>
+	<script type="text/javascript" src="com/js/netmsg.js"></script>
+	<link rel="stylesheet" type="text/css" href="com/plugin/sweetalert/sweetalert.css" />
+	<script type="text/javascript" src="com/plugin/sweetalert/sweetalert-dev.js"></script>
+	<script type="text/javascript" src="com/plugin/sweetalert/sweetalert.min.js"></script>
+
+	<title>分页</title>
+	
+	<script type="text/javascript">
+		var options = {
+				tb:function () {
+					return $('#mytb');
+				},
+				url:hytf_geturl("account_selectlist"),//"../../../account/selectlist.do",
+ 				params:function (param) {
+ 					param["userName"] = $("#userName").val();
+ 					param["identifyID"] = $("#identifyID").val();
+					return param;
+				},
+				columns : [
+					{
+						name:"",
+						render:function (data) {
+							return "<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>";
+						}
+						
+					},
+					{
+						name:"ID",
+						render:function (data) {
+							return data.id;
+						}
+					},
+					{
+						name:"用户名",
+						render:function (data) {
+							return data.userName;
+						}
+					},
+					{
+						name:"登入账号",
+						render:function (data) {
+							return data.loginName;
+						}
+					},
+					{
+						name:"昵称",
+						render:function (data) {
+							return data.nickName;
+						}
+					},
+					{
+						name:"姓名",
+						render:function (data) {
+							return data.identityName;
+						}
+					},
+					{
+						name:"身份证",
+						render:function (data) {
+							return data.identityID;
+						}
+					},
+					{
+						name:"时间",
+						render:function (data) {
+							return new Date(data.createTime).format("yyyy-MM-dd hh:mm:ss");
+						}
+					},
+					{
+						name:"操作",
+						render:function (data) {
+							var str = "";
+							str += "<a href='#' class='tablelinklook'>查看</a>";
+							str += "&nbsp;<a href='#' class='tablelinkedit'>修改</a>";
+							str += "&nbsp;<a href='#' class='tablelinkdel'>删除</a>";
+							return str;
+						}
+					}
+				]
+		};
+
+		$(function(){
+			bootInit(options);
+		});
+		
+		function mySearch() {
+ 			bootSearch();
+		}
+		function myClear() {
+			$("#userName").val("");
+			$("#identifyID").val("");
+			bootSearch();
+		}
+		function edit(id) {
+			alert("edit "+id);
+			bootRefresh();
+		}
+		function del(id) {
+			alert("del "+id);
+		}
+	</script>
+</head>
+<body>
+
+ 	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">系统设置</a></li>
+    <li><a href="#">表格数据</a></li>
+    </ul>
+    </div> 
+    
+	<div id="mysearch" class="leftinfo"><!-- style="margin:20px 30px 5px 30px;text-align:left;"> -->
+	
+		用户名：<input id="userName" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		身份证：<input id="identifyID" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 		<input class="button_search" type="button" value="查询" onclick="mySearch()">&nbsp;&nbsp;
+		<input class="button_clean" type="button" value="清空"  onclick="myClear()">
+		
+
+		<button class="button_add" type="button" onclick="myAdd();" style="float:right" ><i class="icon-search"></i>+新增</button>
+		<button class="button_del" type="button" onclick="myDel();" style="float:right" ><i class="icon-search"></i>-删除</button>
+	</div>
+	<div id="mytb"></div>
+<!--    	<div id="mytb" style="text-align:center;"><table id="userTable" class="table table-striped table-bordered table-hover"></table></div>
+	<div style="text-align:center;"><ul id="useroption"></ul></div>  -->
+
+</body>
+</html>
+	

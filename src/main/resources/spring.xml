@@ -10,7 +10,7 @@
 			http://www.springframework.org/schema/mvc/spring-mvc.xsd
        		http://www.springframework.org/schema/context
        		http://www.springframework.org/schema/context/spring-context.xsd"
-	default-lazy-init="false"> 
+	default-lazy-init="false">
 
 	<import resource="spring-servlet.xml" />
 	<import resource="spring-mybatis.xml" />

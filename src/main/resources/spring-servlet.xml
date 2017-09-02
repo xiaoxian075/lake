@@ -12,7 +12,7 @@
        		http://www.springframework.org/schema/context/spring-context.xsd"
 	default-lazy-init="false">
 	
- 	<mvc:annotation-driven>
+ 	<mvc:annotation-driven> 
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
@@ -25,11 +25,20 @@
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven> 
-	<mvc:resources location="/" mapping="/*.jsp"/> 
-	<mvc:resources location="/" mapping="/**/*.html"/> 
-	<mvc:resources location="/" mapping="/**/*.jsp"/> 
-	<mvc:resources location="/" mapping="/**/*.js"/> 
+	</mvc:annotation-driven>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*"/>
+			<bean class="lake.ctr.Filter" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<mvc:resources location="/" mapping="/**/*.js"/>
+	<mvc:resources location="/" mapping="/**/*.css"/>
+	<mvc:resources location="/" mapping="/**/*.jpg"/>
+	<mvc:resources location="/" mapping="/**/*.png"/>
+	<mvc:resources location="/" mapping="/**/*.gif"/>
 	
 	<!-- 默认扫描的包路径 -->
 	<context:component-scan base-package="lake" />
@@ -40,7 +49,7 @@
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
 		<!-- 配置jsp路径前缀 -->
-		<property name="prefix" value="/WEB-INF/admin/"></property>
+		<property name="prefix" value="/WEB-INF/"></property>
 		<!-- 配置URl后缀 -->
 		<property name="suffix" value=".html"></property>
 	</bean>

@@ -40,6 +40,12 @@
         	`tb_area`
 		WHERE
 			1=1
+ 			<if test="id != null">
+				AND `id`= #{id}
+			</if> 
+			<if test="area_name != null">
+				AND `area_name` LIKE '%${area_name}%'
+			</if>
 			ORDER BY `id`
 	</select>
 	

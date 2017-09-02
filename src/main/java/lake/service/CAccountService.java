@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.node.NPageInfo;
 
+import lake.ctr.node.NNetAccountSelectlist;
 import lake.db.IAccountDB;
 import lake.entity.NAccount;
 import lake.service.IAccountService;
@@ -19,13 +20,15 @@ public class CAccountService implements IAccountService{
 	private IAccountDB iAccountDB;
 
 	@Override
-	public NPageInfo<NAccount> selectList(int pageNum, int pageSize, String userName, String identityID) {
-		Map<String,Object> params = new HashMap<String,Object>();
+	public NPageInfo<NAccount> selectList(NNetAccountSelectlist netParam) {
+		String userName = netParam.getUserName();
+		String identityID = netParam.getIdentifyID();
+		Map<String,Object> _params = new HashMap<String,Object>();
 		if (userName!=null)
-			params.put("userName", userName);
+			_params.put("userName", userName);
 		if (identityID!=null)
-			params.put("identityID", identityID);
-		return NPageInfo.selectList(pageNum,pageSize,iAccountDB, params);
+			_params.put("identityID", identityID);
+		return NPageInfo.selectList(netParam.getPageNum(),netParam.getPageSize(),iAccountDB, _params);
 	}
 	
 

@@ -1,37 +1,42 @@
+var _VERSION = "yzyj-admin-1.0.0";
+var _ENCRYPT = "none";
 
-function ajaxPost(url,params,cbOK) {
+function hytf_ajaxPost(url,params,cbOK,cbErr) {
+	if (params==undefined)
+		params = {};
+	var _params = {
+			"version":_VERSION,
+			"encrypt":_ENCRYPT,
+			"random":0,
+			"data":JSON.stringify(params)
+	}
 	$.ajax({
 		async:true,
 		url:url,
 		type:"post",
 		dataType:"json",
-		data:params,
+		data:_params,
 		cache:false,
 		success: function (data) {
 			if (data.code!=0) {
-				swal(data.desc);
+				if (data.code==1) {
+					parent.location.href = 'login';
+					return;
+				}
+				if (cbErr==undefined) {
+					swal(data.desc);
+				} else {
+					cbErr(data);
+				}
 				return;
 			}
-			cbOK(data.info);
-		}
-	});
-}
-
-function ajaxPost2(url,params,cbOK,cbErr) {
-	$.ajax({
-		async:true,
-		url:url,
-		type:"post",
-		dataType:"json",
-		data:params,
-		cache:false,
-		success: function (data) {
-			if (data.code!=0) {
-				//swal(data.desc);
-				cbErr(data);
-				return;
+			if (cbOK!=undefined) {
+				cbOK(data.info);
 			}
-			cbOK(data.info);
+		},
+		error:function (data) {
+			//swal(data);
+			parent.location.href = 'login';
 		}
 	});
 }
