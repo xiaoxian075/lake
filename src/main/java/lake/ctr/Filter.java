@@ -9,54 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.node.NAdmin;
+import com.node.ConstDefine;
+import com.node.NAdminSession;
 import com.util.DateUtil;
-
-import lake.ConstDefine;
 
 
 public class Filter implements HandlerInterceptor/*extends OncePerRequestFilter*/ {
 
-//    @Override
-//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-////			跨域设置
-////        if (request.getHeader("Access-Control-Request-Method") != null && "OPTIONS".equals(request.getMethod())) {
-////            response.addHeader("Access-Control-Allow-Origin", "*");
-////            response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-////            response.addHeader("Access-Control-Allow-Headers", "Content-Type");
-////            response.addHeader("Access-Control-Max-Age", "1800");//30 min
-////        }
-//    	
-////      HttpServletRequest request = (HttpServletRequest) servletRequest;
-////      HttpServletResponse response = (HttpServletResponse) servletResponse;
-//      //设置request字符编码
-//      request.setCharacterEncoding("UTF-8");
-//      //设置response字符编码
-//      response.setContentType("text/html;charset=UTF-8");
-//      String path = request.getContextPath();
-//      String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-//      String loginUrl=basePath+"/rest/admin/login";
-//  
-//      String url = request.getRequestURI();
-//    	
-////    	NAdmin admin = (NAdmin)request.getSession().getAttribute(ConstDefine.ADMIN_ID);
-////    	if (admin==null) {
-////    		
-////    	}
-//        filterChain.doFilter(request, response);
-//    }
-
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -75,13 +43,13 @@ public class Filter implements HandlerInterceptor/*extends OncePerRequestFilter*
 		List<String> arrKey = new ArrayList<String>();
 		arrKey.add("/admin/login");
 		arrKey.add("/admin/error");
-		arrKey.add("/login/login.do");
-		arrKey.add("/login/logout.do");
+		arrKey.add("/main/login.do");
+		arrKey.add("/main/logout.do");
 		
 		if (arrKey.contains(url))
 			return true;
 		
-		NAdmin admin = (NAdmin)request.getSession().getAttribute(ConstDefine.ADMIN_ID);
+		NAdminSession admin = (NAdminSession)request.getSession().getAttribute(ConstDefine.ADMIN_ID);
 		if (admin==null) {
 			//response.getWriter().write(NRespone.toStr(1, "登出", null));
 			response.sendRedirect(loginPath);
@@ -101,7 +69,7 @@ public class Filter implements HandlerInterceptor/*extends OncePerRequestFilter*
 		
 		return true;
 	}
-    
+}    
 //    HttpServletRequest request = (HttpServletRequest) servletRequest;
 //    HttpServletResponse response = (HttpServletResponse) servletResponse;
 //    //设置request字符编码
@@ -146,4 +114,3 @@ public class Filter implements HandlerInterceptor/*extends OncePerRequestFilter*
 //            return ;
 //        }
 //    }
-}

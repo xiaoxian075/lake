@@ -6,16 +6,23 @@ import com.util.JsonUtil;
 
 public class NRespone implements Serializable{
 	
-	public static <T> String toStr() {
-		return toStr(0,"",null);
+	public static String toStr() {
+		return toStr(ConstDefine.OK,null);
+	}
+	
+	public static String toStr(int code) {
+		return toStr(code,null);
 	}
 	
 	public static <T> String toStr(T t) {
-		return toStr(0,"",t);
+		return toStr(ConstDefine.OK,t);
+	}
+	public static <T> String toStr(int code, T t) {
+		return JsonUtil.toString(new NRespone(code,ConstDefine.getDesc(code),t));
 	}
 	
-	public static <T> String toStr(int code, String desc, T t) {
-		return JsonUtil.toString(new NRespone(code,desc,t));
+	public static <T> String toStr(NReturn<T> nReturn) {
+		return JsonUtil.toString(new NRespone(nReturn.getCode(),nReturn.getDesc(),nReturn.getT()));
 	}
 	
 	

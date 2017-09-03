@@ -4,6 +4,9 @@ var _ENCRYPT = "none";
 function hytf_ajaxPost(url,params,cbOK,cbErr) {
 	if (params==undefined)
 		params = {};
+	
+	url = hytf_geturl(url);
+	
 	var _params = {
 			"version":_VERSION,
 			"encrypt":_ENCRYPT,

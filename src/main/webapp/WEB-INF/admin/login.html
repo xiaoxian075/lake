@@ -33,18 +33,12 @@
 			swal("密码不能为空");
 			return;
 		}
-		hytf_ajaxPost(hytf_geturl("login"),{"loginUser":loginUser,"loginPwd":loginPwd},cbOK/*,cbErr*/);
+		hytf_ajaxPost("login",{"loginUser":loginUser,"loginPwd":loginPwd},cbOK);
 	}
 	
 	function cbOK(data) {
-		/* window.location='main.html'; */
-		//$("#ss").href="admin/main";
 		window.location='main';
 	}
-	
-/* 	function cbErr(data) {
-		swal(data.desc+"slkjii");
-	} */
 	
 </script> 
 

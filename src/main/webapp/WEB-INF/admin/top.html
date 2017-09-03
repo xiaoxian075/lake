@@ -13,15 +13,23 @@
 
 	<script type="text/javascript">
 		$(function(){	
-			//顶部导航切换
+/* 			//顶部导航切换
 			$(".nav li a").click(function(){
 				$(".nav li a.selected").removeClass("selected")
 				$(this).addClass("selected");
-			})	
+			})	 */
+			getAdmin();
 		});
 		
 		function logout() {
-			hytf_ajaxPost(hytf_geturl("logout"));
+			hytf_ajaxPost("logout");
+		}
+		
+		function getAdmin() {
+			hytf_ajaxPost("getAdmin",cbAdmin());
+		}
+		function cbAdmin(data) {
+			$("#admin").html(data);
 		}
 	</script>
 
@@ -51,7 +59,7 @@
     </ul>
      
     <div class="user">
-    <span>admin</span>
+    <span id="admin">admin</span>
 <!--     <i>消息</i>
     <b>5</b> -->
     </div>    

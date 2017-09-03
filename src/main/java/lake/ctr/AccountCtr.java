@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.node.ConstDefine;
 import com.node.NNetBase;
 import com.node.NPageInfo;
 import com.node.NRespone;
@@ -28,7 +29,7 @@ public class AccountCtr {
 	public String selectlist(HttpServletRequest request,Model model){
 		NNetBase<NNetAccountSelectlist> net = NNetBase.createNew(request,NNetAccountSelectlist.class);
 		if (net.getCode()!=0) {
-			return NRespone.toStr(1,"参数错误",null);
+			return NRespone.toStr(ConstDefine.PARAM);
 		}
 		NPageInfo<NAccount> info = iAccountService.selectList(net.getT());
 		return NRespone.toStr(info);

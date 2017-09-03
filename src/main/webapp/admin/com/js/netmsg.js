@@ -13,8 +13,9 @@ function getRootPath_dc() {
 
 
 var _hytf_arrnet = {
-		"login":"login/login.do",
-		"logout":"login/logout.do",
+		"login":"main/login.do",
+		"logout":"main/logout.do",
+		"getAdmin":"main/getAdmin.do",
 		"account_selectlist":"account/selectlist.do",
 		"area_selectlist":"area/selectlist.do"
 };

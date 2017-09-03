@@ -1,30 +1,25 @@
 package lake.ctr;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import lake.ConstDefine;
 
 @Controller
 @RequestMapping("admin")
 public class ViewCtr {
 	
-	@RequestMapping("login")
+	@RequestMapping("*")
 	public String login() {
 		return "admin/login";
 	}
 	
-//	@RequestMapping("logout")
-//	public String logout(HttpServletRequest request) {
-//		request.getSession().setAttribute(ConstDefine.ADMIN_ID, null);
-//		return "admin/login";
-//	}
-	
 	@RequestMapping("error")
 	public String error() {
 		return "admin/error";
+	}
+	
+	@RequestMapping("first")
+	public String first() {
+		return "admin/src/first";
 	}
 	
 	@RequestMapping("main")
@@ -42,9 +37,9 @@ public class ViewCtr {
 		return "admin/left";
 	}
 	
-	@RequestMapping("table")
-	public String table() {
-		return "admin/src/system/table";
+	@RequestMapping("player")
+	public String player() {
+		return "admin/src/account/player";
 	}
 	
 	@RequestMapping("area")
