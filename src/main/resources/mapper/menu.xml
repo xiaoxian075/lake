@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lake.db.IMenuDB">
+
+	<!-- tb_menu -->
+	<resultMap id="MybatisList" type="lake.entity.NMenu" >
+		<id column="id" property="id"/>
+		<result property="parentId" column="parentId" />
+		<result property="url" column="url" />
+		<result property="name" column="name" />
+		<result property="level" column="level" />
+		<result property="state" column="state" />
+		<result property="sort" column="sort" />
+		<result property="createTime" column="createTime" />
+		<result property="updateTime" column="updateTime" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map" resultMap="MybatisList">
+        SELECT
+			`id`,
+			`parentId`,
+			`url`,
+			`name`,
+			`level`,
+			`state`,
+			`sort`,
+			`createTime`,
+			`updateTime`
+        FROM
+        	`tb_menu`
+		WHERE
+			1=1
+ 			<if test="url != null">
+				AND `url`= #{url}
+			</if> 
+			<if test="name != null">
+				AND `name` LIKE '%${name}%'
+			</if>
+			ORDER BY `id`
+	</select>
+	
+</mapper> 
+

@@ -1,4 +1,4 @@
-package com.timer;
+package lake.timer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

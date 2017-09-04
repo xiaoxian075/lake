@@ -1,4 +1,4 @@
-package com.node;
+package lake.com;
 
 import java.io.Serializable;
 

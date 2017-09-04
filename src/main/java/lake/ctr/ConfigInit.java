@@ -1,4 +1,4 @@
-package lake;
+package lake.ctr;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -6,7 +6,7 @@ import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.redis.RedisUtil;
+import com.util.RedisUtil;
 
 import lake.entity.NRedis;
 

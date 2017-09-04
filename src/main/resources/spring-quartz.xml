@@ -17,7 +17,7 @@
 	
 
 	<!-- 使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
-	<bean id="taskJob" class="com.timer.TimerTest"/>
+	<bean id="taskJob" class="lake.timer.TimerTest"/>
 	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 	    <property name="group" value="job_work"/>
 	    <property name="name" value="job_work_name"/>

@@ -2,22 +2,24 @@ package com.node;
 
 import java.io.Serializable;
 
+import lake.com.ConstDefine;
+
 public class NReturn<T> implements Serializable{
 
 	public static <T> NReturn<T> createNew() {
-		return createNew(ConstDefine.OK,null);
+		return createNew(0,"",null);
 	}
 	
-	public static <T> NReturn<T> createNew(int code) {
-		return createNew(code,null);
+	public static <T> NReturn<T> createNew(int code,String desc) {
+		return createNew(code,desc,null);
 	}
 	
 	public static <T> NReturn<T> createNew(T t) {
-		return createNew(ConstDefine.OK,t);
+		return createNew(0,"",t);
 	}
 	
-	public static <T> NReturn<T> createNew(int code, T t) {
-		return new NReturn<T>(code,ConstDefine.getDesc(code),t);
+	public static <T> NReturn<T> createNew(int code, String desc, T t) {
+		return new NReturn<T>(code,desc,t);
 	}
 
 	private static final long serialVersionUID = 7816738592153317793L;

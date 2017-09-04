@@ -20,38 +20,60 @@
 				tb:function () {
 					return $('#mytb');
 				},
-				url:"area_selectlist",
+				url:"system_menu_selectlist",
  				params:function (param) {
- 					param["areaId"] = $("#areaId").val();
- 					param["areaName"] = $("#areaName").val();
+ 					param["url"] = $("#menuUrl").val();
+ 					param["name"] = $("#menuName").val();
 					return param;
 				},
 				columns : [
 /* 					{
-						name:"",
+						name:"_check",
 						render:function (data) {
 							return "<input class='mybox' type='checkbox' value='"+data.id+"' onclick='pitch(this);'/>";
 						}
 						
 					}, */
 					{
-						name:"地区编号",
+						name:"编号",
 						render:function (data) {
 							return data.id;
 						}
 					},
 					{
-						name:"地区名称",
+						name:"上级编号",
 						render:function (data) {
-							return data.area_name;
+							return data.parentId;
 						}
 					},
 					{
-						name:"邮政编码",
+						name:"链接地址",
 						render:function (data) {
-							if (data.post_code==undefined || data.post_code=='')
-								return "无";
-							return data.post_code;
+							return data.url;
+						}
+					},
+					{
+						name:"名称",
+						render:function (data) {
+							return data.name;
+						}
+					},
+					{
+						name:"等级",
+						render:function (data) {
+							return data.level;
+						}
+					},
+					{
+						name:"状态",
+						render:function (data) {
+							return data.state;
+						}
+					},
+					{
+						name:"排序",
+						render:function (data) {
+							return data.sort;
 						}
 					},
 					{
@@ -75,8 +97,8 @@
  			bootSearch();
 		}
 		function myClear() {
-			$("#areaId").val("");
-			$("#areaName").val("");
+			$("#menuUrl").val("");
+			$("#menuName").val("");
 			bootSearch();
 		}
 		function edit(id) {
@@ -99,14 +121,14 @@
     
  	<div id="mysearch" class="leftinfo">
 	
-		地区编号：<input id="areaId" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		地区名称：<input id="areaName" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		链接地址：<input id="menuUrl" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		名称：<input id="menuName" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  		<input class="button_search" type="button" value="查询" onclick="mySearch()">&nbsp;&nbsp;
 		<input class="button_clean" type="button" value="清空"  onclick="myClear()">
 		
 
 		<button class="button_add" type="button" onclick="myAdd();" style="float:right" ><i class="icon-search"></i>+新增</button>
-		<button class="button_del" type="button" onclick="myDel();" style="float:right" ><i class="icon-search"></i>-删除</button>
+		<!-- <button class="button_del" type="button" onclick="myDel();" style="float:right" ><i class="icon-search"></i>-删除</button> -->
 	</div>
 	<div id="mytb"></div>
 

@@ -1,4 +1,4 @@
-package lake.ctr;
+package lake.ctr.system;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,25 +13,26 @@ import com.node.NPageInfo;
 import com.node.NRespone;
 
 import lake.com.ConstDefine;
-import lake.ctr.node.NNetAccountSelectlist;
-import lake.entity.NAccount;
-import lake.service.IAccountService;
+import lake.ctr.node.NNetMenu;
+import lake.entity.NMenu;
+import lake.service.IMenuService;
 
 @Controller
-@RequestMapping("account")
-public class AccountCtr {
-	
+@RequestMapping("system/menu")
+public class MenuCtr {
+
 	@Autowired
-	private IAccountService iAccountService;
+	private IMenuService iMenuService;
 
 	@RequestMapping("selectlist.do")
 	@ResponseBody
 	public String selectlist(HttpServletRequest request,Model model){
-		NNetBase<NNetAccountSelectlist> net = NNetBase.createNew(request,NNetAccountSelectlist.class);
+		NNetBase<NNetMenu> net = NNetBase.createNew(request,NNetMenu.class);
 		if (net.getCode()!=0) {
 			return NRespone.toStr(ConstDefine.PARAM);
 		}
-		NPageInfo<NAccount> info = iAccountService.selectList(net.getT());
+		
+		NPageInfo<NMenu> info = iMenuService.selectList(net.getT());
 		return NRespone.toStr(info);
 	}
 }

@@ -11,17 +11,7 @@ public class ViewCtr {
 	public String login() {
 		return "admin/login";
 	}
-	
-	@RequestMapping("error")
-	public String error() {
-		return "admin/error";
-	}
-	
-	@RequestMapping("first")
-	public String first() {
-		return "admin/src/first";
-	}
-	
+
 	@RequestMapping("main")
 	public String main() {
 		return "admin/main";
@@ -37,13 +27,30 @@ public class ViewCtr {
 		return "admin/left";
 	}
 	
-	@RequestMapping("player")
-	public String player() {
-		return "admin/src/account/player";
+	@RequestMapping("error")
+	public String error() {
+		return "admin/error";
+	}
+	
+	@RequestMapping("first")
+	public String first() {
+		return "admin/src/first";
+	}
+	
+
+	@RequestMapping("menu")
+	public String menu() {
+		return "admin/src/system/menu";
 	}
 	
 	@RequestMapping("area")
 	public String area() {
 		return "admin/src/system/area";
 	}
+
+	@RequestMapping("player")
+	public String player() {
+		return "admin/src/account/player";
+	}
+	
 }

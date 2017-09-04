@@ -74,8 +74,14 @@ function _cbData(data) {
 	tbody += "<table class='tablelist'>";
 	tbody +=	"<thead>";
 	tbody +=	"<tr>";
-	for (var k=0; k<_bootOpt.columns.length; k++) {
+	var index = 0;
+	if (_bootOpt.columns[index].name=='_check') {
+		tbody += "<th></th>";
+		index = 1;
+	}
+	for (var k=index; k<_bootOpt.columns.length; k++) {
 		tbody += "<th>"+_bootOpt.columns[k].name+"</th>";
+		
 	}
 	tbody += 	"</tr>";
 	tbody +=	"</thead>";
@@ -98,7 +104,9 @@ function _cbData(data) {
 	
 	
 	tbody += "<div style='text-align:right;margin:10px 30px 0px 0px'>";
-	tbody += " <label style='float:left'><a href='#'>全选</a>/<a href='#'>反选</a></label>";
+	if (_bootOpt.columns[0].name=='_check') {
+		tbody += " <label style='float:left'><a href='#'>全选</a>/<a href='#'>反选</a></label>";
+	}
 	tbody += 	"共&nbsp;<label id='_pages'><font size='3' color='red'>"+data.pages+"</font></label>&nbsp;页";
 	tbody += 	"&nbsp;&nbsp;跳转至<input id='_pageNum' type='text' value=1 onchange='_skip();' style='text-align:center;width:40px;height:20px' maxlength='8' size='14'>页";
 	tbody += 	"&nbsp;&nbsp;每页<select id='_pageSize' onchange='_changePage();' style='width:50px;height:20px'><option value=5>5</option><option value=10>10</option><option value=20>20</option><option value=50>50</option><option value=100>100</option></select>条";

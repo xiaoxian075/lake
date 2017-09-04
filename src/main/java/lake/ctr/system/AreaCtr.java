@@ -1,4 +1,4 @@
-package lake.ctr;
+package lake.ctr.system;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,17 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.node.ConstDefine;
 import com.node.NNetBase;
 import com.node.NPageInfo;
 import com.node.NRespone;
 
+import lake.com.ConstDefine;
 import lake.ctr.node.NNetArea;
 import lake.entity.NArea;
 import lake.service.IAreaService;
 
 @Controller
-@RequestMapping("area")
+@RequestMapping("system/area")
 public class AreaCtr {
 
 	@Autowired

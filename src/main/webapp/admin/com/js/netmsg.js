@@ -16,8 +16,9 @@ var _hytf_arrnet = {
 		"login":"main/login.do",
 		"logout":"main/logout.do",
 		"getAdmin":"main/getAdmin.do",
-		"account_selectlist":"account/selectlist.do",
-		"area_selectlist":"area/selectlist.do"
+		"system_menu_selectlist":"system/menu/selectlist.do",
+		"area_selectlist":"system/area/selectlist.do",
+		"account_selectlist":"account/selectlist.do"
 };
 
 function hytf_geturl(id) {
